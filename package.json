@@ -12,6 +12,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.2",
     "@react-spring/web": "^9.5.2",
     "@unocss/reset": "^0.44.7",
     "await-to-js": "^3.0.0",
