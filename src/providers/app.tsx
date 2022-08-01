@@ -2,6 +2,7 @@ import { Button } from '@mui/material'
 import React from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { RecoilRoot } from 'recoil'
 import { Spinner } from '@/components/Elements'
 
 const ErrorFallback = () => {
@@ -32,7 +33,9 @@ export const AppProvider = ({ children }: AppProviderProps) => {
       }
       >
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Router>{children}</Router>
+        <RecoilRoot>
+          <Router>{children}</Router>
+        </RecoilRoot>
       </ErrorBoundary>
 
     </React.Suspense>
