@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 import { Spinner } from '@/components/Elements'
+import { MainLayout } from '@/components/Layout'
 
 const ErrorFallback = () => {
   return (
@@ -34,7 +35,11 @@ export const AppProvider = ({ children }: AppProviderProps) => {
       >
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <RecoilRoot>
-          <Router>{children}</Router>
+          <Router>
+            <MainLayout>
+              {children}
+            </MainLayout>
+          </Router>
         </RecoilRoot>
       </ErrorBoundary>
 
