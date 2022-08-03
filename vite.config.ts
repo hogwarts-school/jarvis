@@ -1,7 +1,7 @@
 import path from 'path'
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,6 +24,10 @@ export default defineConfig({
       {
         find: /^~/,
         replacement: '',
+      },
+      {
+        find: '@api',
+        replacement: path.resolve(__dirname, './src/api'),
       },
       // 别名
       {

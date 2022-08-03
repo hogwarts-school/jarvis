@@ -1,4 +1,5 @@
-import { useCallback } from 'react'
+import api from '@api'
+import { useCallback, useState } from 'react'
 import { atom, selector, useRecoilState, useRecoilValue } from 'recoil'
 
 const textState = atom({
@@ -22,10 +23,26 @@ function TextInput() {
     setText(event.target.value)
   }, [])
 
+  const [username, setUserName] = useState('')
+  const [password, setPassword] = useState('')
+
+  const login = () => {
+    api.user.userControllerLogin({
+      username,
+      password,
+    })
+  }
+
   return (
     <div>
-      <input value={text} onChange={onChange} />
-      <br />
+
+      <input placeholder="账号" onChange={e => setUserName(e.target.value)}/>
+      <input placeholder="密码" onChange={e => setPassword(e.target.value)}/>
+
+      <button onClick={login}>登陆</button>
+      <br/>
+      <input value={text} onChange={onChange}/>
+      <br/>
       Echo: {text}
     </div>
   )
